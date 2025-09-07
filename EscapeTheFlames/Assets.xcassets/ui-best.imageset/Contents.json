@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ui-best.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

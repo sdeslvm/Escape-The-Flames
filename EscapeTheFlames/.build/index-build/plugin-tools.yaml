@@ -1,0 +1,47 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "EscapeTheFlames-arm64-apple-macosx26.0-debug.module": ["<EscapeTheFlames-arm64-apple-macosx26.0-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<EscapeTheFlames-arm64-apple-macosx26.0-debug.module>"]
+  "test": ["<EscapeTheFlames-arm64-apple-macosx26.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/EscapeTheFlames.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/Sources/main.swift"]
+    outputs: ["/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/EscapeTheFlames.build/sources"]
+    description: "Write auxiliary file /Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/EscapeTheFlames.build/sources"
+
+  "/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt"
+
+  "<EscapeTheFlames-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/Modules/EscapeTheFlames.swiftmodule"]
+    outputs: ["<EscapeTheFlames-arm64-apple-macosx26.0-debug.module>"]
+
+  "C.EscapeTheFlames-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/Sources/main.swift","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/EscapeTheFlames.build/sources"]
+    outputs: ["/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/Modules/EscapeTheFlames.swiftmodule"]
+    description: "Compiling Swift Module 'EscapeTheFlames' (1 sources)"
+    args: ["/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","EscapeTheFlames","-emit-dependencies","-emit-module","-emit-module-path","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/Modules/EscapeTheFlames.swiftmodule","-output-file-map","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/EscapeTheFlames.build/output-file-map.json","-incremental","@/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/EscapeTheFlames.build/sources","-I","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx11.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j10","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/.build/index-build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-swift-version","5","-Xfrontend","-experimental-lazy-typecheck","-Xfrontend","-experimental-skip-all-function-bodies","-Xfrontend","-experimental-allow-module-with-compiler-errors","-Xfrontend","-empty-abi-descriptor","-plugin-path","/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","escapetheflames"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/Sources/","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/Package.swift","/Users/alex/Downloads/СrystalDrop/EscapeTheFlames/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
